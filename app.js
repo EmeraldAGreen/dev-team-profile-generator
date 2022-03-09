@@ -1,11 +1,11 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
-const fs = require('fs');
+
 
 // Team profiles
-const manager = require("./lib/manager");
-const engineer = require("./lib/engineer");
-const intern = require("./lib/intern");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 
 const generateHTML = require("./src/generateHTML")
 
@@ -13,11 +13,11 @@ const employeeArray = [];
 
 // Create a function to initialize app
 function init() {
-    writeHTML();
+    generateHTML();
     addMember();
 };
 
-// GIVEN a command-line application that accepts user input
+// GIVEN a command-line application that accepts user data
 // WHEN I am prompted for my team members and their information
 function addMember() {
     return inquirer.prompt([
@@ -26,7 +26,7 @@ function addMember() {
             name: 'start',
         },
         {
-            type: 'input',
+            type: 'data',
             message: 'Member name:',
             name: 'name',
         },
@@ -37,35 +37,43 @@ function addMember() {
             name: 'role',
         },
         {
-            type: 'input',
+            type: 'data',
             message: 'Member ID:',
             name: 'id',
         },
         {
-            type: 'input',
+            type: 'data',
             message: "Enter the member's email address",
             name: 'email',
         },
     ])
 
 // CHAIN A .THEN THAT ADDS GITHUB/SCHOOL/OR OFFICE # INFO BASED ON ROLE SELECTED IN THE PROMPT
-    .then(function(name, id, email){
-        let role = ""
-        switch(input.role) {
-            case 'Manager':
-                role = 'office number'
-                return role
-            case 'Engineer':
-                role = 'github'
-                return role
-            case 'Intern':
-                role = 'school name'
-                return role
-            default:
-                `Please select the member's role.`
+    .then(function(name, id, email, role){
+        let roleData = ""
+    
+        if (role === "Manager") {
+            roleData = "office number";
+        } else if (role === "Engineer") {
+            roleData = "github";
+        } else {
+            roleData = "school name";
         }
+        // switch(data.role) {
+        //     case 'Manager':
+        //         role = 'office number'
+        //         return role
+        //     case 'Engineer':
+        //         role = 'github'
+        //         return role
+        //     case 'Intern':
+        //         role = 'school name'
+        //         return role
+        //     default:
+        //         `Please select the member's role.`
+        // }
         inquirer.prompt([{
-            message: `Enter the member's ${role}`,
+            message: `Enter the member's ${roleData}`,
             name: "role"
         },
         {   type:'list',
@@ -73,14 +81,15 @@ function addMember() {
             choices:['yes', 'no',],
             name: 'anotherMember'
         }])
-        .then(function(role, anotherMember) {
-            if (input.role === 'Engineer'){
-                let newMember;
-                newMember = new engineer(name, id, email, role)
-            } else if (input.role === 'Intern'){
-                newMember = new intern(name, id, email, role)
+        // ERROR HERE CANNOT READ PROPERTIES OF UNDEFINED THEN
+        .then(function(roleData, anotherMember) {
+            let newMember;
+            if (role === 'Engineer'){
+                newMember = new Engineer(name, id, email, roleData)
+            } else if (role === 'Intern'){
+                newMember = new Intern(name, id, email, roleData)
             } else {
-                newMember = new manager(name, id, email, role)
+                newMember = new Manager(name, id, email, roleData)
             }
             employeeArray.push(newMember)
             generateHTML(newMember)
@@ -100,7 +109,7 @@ function addMember() {
 init();  
 
 
-// THEN an HTML file is generated that displays a nicely formatted team roster based on user input
+// THEN an HTML file is generated that displays a nicely formatted team roster based on user data
 // WHEN I click on an email address in the HTML
 // THEN my default email program opens and populates the TO field of the email with the address
 // WHEN I click on the GitHub username

@@ -1,3 +1,5 @@
+const fs = require('fs');
+
 function generateHTML() {
     let html =
         `<!DOCTYPE html>
