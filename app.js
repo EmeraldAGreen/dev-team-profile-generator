@@ -1,7 +1,6 @@
 // Include packages needed for this application
 const inquirer = require('inquirer');
 
-
 // Team profiles
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");

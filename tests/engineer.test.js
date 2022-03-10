@@ -1,11 +1,11 @@
 const Engineer = require('./lib/engineer')
 
 describe("Engineer", () => {
-    it("should return an object", () => {
-        const obj = new Engineer();
-        expect(typeof(obj)).toBe("object")
+        const Engineer = new Engineer();
+    test("defines getGitHub()", () => {
+        expect(typeof Engineer.getGithub).toBe("function");
     })
-    it("should set Github username via getGithub()", () => {
+    it ("should set Github username via getGithub()", () => {
         const github = "GitHubUser"
         const obj = new Engineer();
         expect(obj.github).toBe(github)
