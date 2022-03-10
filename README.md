@@ -7,6 +7,7 @@
 This a node.js command-line application that creates an HTML webpage to display information about members of a development team.
 
 ## Walkthrough Video
+https://docs.google.com/document/d/1wJHvlxMT1ceiO9WBKnhIsxvWVzu2HrS61g56sr9IcAg/edit?usp=sharing 
 
 ## Table of Contents
 * [Installation](#installation)
