@@ -35,58 +35,57 @@ function appendEmployee(employee) {
         const role = employee.getRole();
         const id = employee.getId();
         const email = employee.getEmail();
-        let data = '';
+        const data = '';
         if (role === 'Manager') {
-            const managerCard = employee.getManager()
+            const officeNumber = employee.getOfficeNumber()
             data = 
             `<div class="card mb-2 " style="max-width: 25rem">
                 <div class="card-body text-white bg-primary ">
-                <h5 class="card-title">${input.name}</h5>
-                <h6 class="card-subtitle">${input.role}</h6>
+                <h5 class="card-title">${name}}</h5>
+                <h6 class="card-subtitle">${role}</h6>
                 </div>
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${input.id}</li>
-                <li class="list-group-item">${input.email}</li>
-                <li class="list-group-item">${input.officeNumber}</li>
+                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">${officeNumber}</li>
                 </ul>
                 </div>
             </div>`
         } else if (role === 'Engineer') {
-            const engineerCard = employee.getEngineer()
+            const GitHub = employee.getGithub()
             data =
             `<div class="card mb-2" style="max-width: 25rem">
                 <div class="card-body text-white bg-primary ">
-                <h5 class="card-title">${input.name}</h5>
-                <h6 class="card-subtitle">${input.role}</h6>
+                <h5 class="card-title">${name}</h5>
+                <h6 class="card-subtitle">${role}</h6>
                 </div>
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${input.id}</li>
-                <li class="list-group-item">${input.email}</li>
-                <li class="list-group-item">${input.github}</li>
+                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${GitHub}">${GitHub}</a></li>
                 </ul>
                 </div>
             </div>`
         } else {
-            const internCard = employee.getIntern()
+            const school = employee.getSchool()
             data =
             `<div class="card mb-2" style="max-width: 25rem">
                 <div class="card-body text-white bg-primary ">
-                <h5 class="card-title">${input.name}</h5>
-                <h6 class="card-subtitle">${input.role}</h6>
+                <h5 class="card-title">${name}</h5>
+                <h6 class="card-subtitle">${role}</h6>
                 </div>
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${input.id}</li>
-                <li class="list-group-item">${input.email}</li>
-                <li class="list-group-item">${input.school}</li>
+                <li class="list-group-item">${id}</li>
+                li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">${school}</li>
                 </ul>
-            </div>`
-        }
+            </div>`}
         fs.appendFile('./dist/output.html', data, function (err) {
             if (err) {
                 return reject(err);

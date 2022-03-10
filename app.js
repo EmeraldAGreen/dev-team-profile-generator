@@ -7,13 +7,13 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
-const generateHTML = require("./src/generateHTML")
-
+const generateHTML= require("./src/generateHTML").generateHTML
+const closeHTML= require("./src/generateHTML").closeHTML
 const employeeArray = [];
 
 // Create a function to initialize app
 function init() {
-    generateHTML();
+    generateHTML
     addMember();
 };
 
@@ -59,19 +59,6 @@ function addMember() {
         } else {
             roleData = "school name";
         }
-        // switch(data.role) {
-        //     case 'Manager':
-        //         role = 'office number'
-        //         return role
-        //     case 'Engineer':
-        //         role = 'github'
-        //         return role
-        //     case 'Intern':
-        //         role = 'school name'
-        //         return role
-        //     default:
-        //         `Please select the member's role.`
-        // }
         inquirer.prompt([{
             message: `Enter the member's ${roleData}`,
             name: "role"
@@ -81,7 +68,7 @@ function addMember() {
             choices:['yes', 'no',],
             name: 'anotherMember'
         }])
-        // ERROR HERE CANNOT READ PROPERTIES OF UNDEFINED THEN
+        
         .then(function(roleData, anotherMember) {
             let newMember;
             if (role === 'Engineer'){
@@ -92,16 +79,15 @@ function addMember() {
                 newMember = new Manager(name, id, email, roleData)
             }
             employeeArray.push(newMember)
-            generateHTML(newMember)
-            .then(function() {
-                if (anotherMember === 'yes') {
-                    addMember();
-                } else {
-                    closeHTML();
-                }
-            });
-            
-        });
+            // generateHTML
+            // NOW INSTEAD OF THROWING AN ERROR CLICKING YES TAKES YOU OUT OF THE APP INSTEAD OF LOOPING
+            if (anotherMember === 'yes') {
+                addMember();
+                // init(newMember)?
+            } else {
+                closeHTML
+            }
+        })
     });
 } 
 
