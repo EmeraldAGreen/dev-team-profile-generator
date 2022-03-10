@@ -107,9 +107,8 @@ function saveMember({name, id, email, employeeRole, data:{anotherMember, role}})
     // NOW INSTEAD OF THROWING AN ERROR CLICKING YES TAKES YOU OUT OF THE APP INSTEAD OF LOOPING
     if (anotherMember === 'yes') {
         addMember();
-        // init(newMember)?
     } else {
-        prepareHTML(employeeArray)
+        prepareHTML
     }
 }
 

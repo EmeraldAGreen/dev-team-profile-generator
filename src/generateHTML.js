@@ -3,13 +3,17 @@ const fs = require('fs');
 function prepareHTML(employeeArray){
     generateHTML()
     for (let index = 0; index < employeeArray.length; index++) {
-        
-        
+        if (employeeArray.length>0) {
+            appendEmployee(i);
+        } else {
+
+        closeHTML()
     }
-}
+}}
 // for loop to loop through each employee in the array 
 // use appendHTML for each employee in the for loop
 // once all employees appended close HTMl 
+
 function generateHTML() {
     let html =
         `<!DOCTYPE html>
