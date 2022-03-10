@@ -1,5 +1,15 @@
 const fs = require('fs');
 
+function prepareHTML(employeeArray){
+    generateHTML()
+    for (let index = 0; index < employeeArray.length; index++) {
+        
+        
+    }
+}
+// for loop to loop through each employee in the array 
+// use appendHTML for each employee in the for loop
+// once all employees appended close HTMl 
 function generateHTML() {
     let html =
         `<!DOCTYPE html>
@@ -93,8 +103,6 @@ function appendEmployee(employee) {
             return resolve();
         });
     });
-
-
 }
 
 function closeHTML() {
@@ -112,4 +120,4 @@ function closeHTML() {
 }
 
 
-module.exports = generateHTML, appendEmployee, closeHTML
+module.exports = generateHTML, appendEmployee, closeHTML, prepareHTML
