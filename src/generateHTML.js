@@ -39,7 +39,7 @@ function generateHTML() {
             <div class="d-flex justify-content-around pt-2">`
 
     fs.writeFile('./dist/output.html', html, (err) =>
-        err ? console.error(err) : console.log('Build your team profile.')
+        err ? console.error(err) : console.log('Your team profile is ready in ./dist/output.html')
     )
 }
 

@@ -31,7 +31,6 @@ describe("Employee", () => {
         it ("should get id via getId()", () => {
             const id = 1
             const obj = new Employee("TestName", id)
-            // example has ("foo", id)
             expect(obj.getId()).toBe(id)
         })
     describe("getEmail", () => {
