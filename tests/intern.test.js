@@ -1,18 +1,17 @@
-const Intern = require('./lib/engineer')
+const Intern = require('../lib/intern')
 
 describe("Intern", () => {
     it("should return an object", () => {
         const obj = new Intern();
-        expect(typeof(obj)).toBe("object")
+        expect(typeof obj).toBe("object")
     })
-    it("should set school via getSchool()", () => {
+    it("should get school via getSchool()", () => {
         const school = "schoolName"
-        const obj = new Intern();
-        expect(obj.school).toBe(school)
+        const obj = new Intern("TestName", 22, "email@mail.com", school);
+        expect(obj.getSchool()).toBe(school)
     })
     it ("should return \"Intern\" via getRole()", () => {
-        const name = "Test"
-        const obj = new Intern(name)
-        expect(obj.name).toBe(name)
+        const obj = new Intern()
+        expect(obj.getRole()).toBe("Intern")
     })
 })

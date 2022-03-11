@@ -6,7 +6,7 @@ const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 
-const prepareHTML = require("./src/generateHTML").prepareHTML
+const prepareHTML = require("./src/generateHTML")
 
 const employeeArray = [];
 
@@ -107,7 +107,8 @@ function saveMember({name, id, email, employeeRole, data:{anotherMember, role}})
     if (anotherMember === 'yes') {
         addMember();
     } else {
-        prepareHTML
+        prepareHTML(employeeArray)
+        console.log(prepareHTML)
     }
 }
 

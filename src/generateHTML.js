@@ -4,7 +4,7 @@ function prepareHTML(employeeArray){
     generateHTML()
     for (let index = 0; index < employeeArray.length; index++) {
         if (employeeArray.length>0) {
-            appendEmployee(i);
+            appendEmployee(employeeArray[index]);
         } else {
 
         closeHTML()
@@ -49,13 +49,13 @@ function appendEmployee(employee) {
         const role = employee.getRole();
         const id = employee.getId();
         const email = employee.getEmail();
-        const data = '';
+        let data = '';
         if (role === 'Manager') {
             const officeNumber = employee.getOfficeNumber()
             data = 
             `<div class="card mb-2 " style="max-width: 25rem">
                 <div class="card-body text-white bg-primary ">
-                <h5 class="card-title">${name}}</h5>
+                <h5 class="card-title">${name}</h5>
                 <h6 class="card-subtitle">${role}</h6>
                 </div>
 
@@ -124,4 +124,4 @@ function closeHTML() {
 }
 
 
-module.exports = generateHTML, appendEmployee, closeHTML, prepareHTML
+module.exports = prepareHTML

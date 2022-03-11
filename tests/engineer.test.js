@@ -1,18 +1,17 @@
-const Engineer = require('./lib/engineer')
+const Engineer = require('../lib/engineer')
 
 describe("Engineer", () => {
-        const Engineer = new Engineer();
-    test("defines getGitHub()", () => {
-        expect(typeof Engineer.getGithub).toBe("function");
-    })
-    it ("should set Github username via getGithub()", () => {
-        const github = "GitHubUser"
+    it("should return an object", () => {
         const obj = new Engineer();
-        expect(obj.github).toBe(github)
+        expect(typeof obj).toBe("object")
+    })
+    it ("should get Github username via getGithub()", () => {
+        const github = "GitHubUser"
+        const obj = new Engineer("TestName", 22, "email@mail.com", github);
+        expect(obj.getGithub()).toBe(github)
     })
     it ("should return \"Engineer\" via getRole()", () => {
-        const name = "Test"
-        const obj = new Engineer(name)
-        expect(obj.name).toBe(name)
+        const obj = new Engineer()
+        expect(obj.getRole()).toBe("Engineer")
     })
 })
