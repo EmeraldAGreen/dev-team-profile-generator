@@ -96,7 +96,7 @@ function appendEmployee(employee) {
                 <div>
                 <ul class="list-group list-group-flush">
                 <li class="list-group-item">${id}</li>
-                li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
+                <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
                 <li class="list-group-item">${school}</li>
                 </ul>
             </div>`}
