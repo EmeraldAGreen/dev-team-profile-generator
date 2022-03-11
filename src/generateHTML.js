@@ -61,9 +61,9 @@ function appendEmployee(employee) {
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">Member ID: ${id}</li>
                 <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
-                <li class="list-group-item">${officeNumber}</li>
+                <li class="list-group-item">Office Number: ${officeNumber}</li>
                 </ul>
                 </div>
             </div>`
@@ -78,7 +78,7 @@ function appendEmployee(employee) {
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">Member ID: ${id}</li>
                 <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
                 <li class="list-group-item">Github: <a target="_blank" href="https://github.com/${GitHub}">${GitHub}</a></li>
                 </ul>
@@ -95,9 +95,9 @@ function appendEmployee(employee) {
 
                 <div>
                 <ul class="list-group list-group-flush">
-                <li class="list-group-item">${id}</li>
+                <li class="list-group-item">Member ID: ${id}</li>
                 <li class="list-group-item">Email:<a href="mailto:${email}">${email}</a></li>
-                <li class="list-group-item">${school}</li>
+                <li class="list-group-item">School:${school}</li>
                 </ul>
             </div>`}
         fs.appendFile('./dist/output.html', data, function (err) {
